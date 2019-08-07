@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Hello</title>
+    <link rel="stylesHeet" type="text/css" href="./resources/css/ext-all.css" />
+    <script type="text/javascript" src="./adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="./js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            var embeddedColumns = new Ext.Container({
+                renderTo: 'main',
+                autoEl: 'div',
+                layout: 'table',
+                defaults: {
+                    xtype: 'container',
+                    autoEl: 'div',
+                    layout: 'table',
+                    layoutConfig: {
+                        columns: 2
+                    },
+                    columnWidth: 0.8,
+                    style: {
+                        width: '900px',
+                        position: 'relative',
+                        padding: '10px',
+                        top: '200px',
+                        marginLeft: '600px'
+                    }
+                },
+                items: [{
+                    colspan: 1,
+                    layout: 'hbox',
+                    layoutConfig: { pack: 'center' },
+                    xtype: 'container',
+                    items: [{
+                        xtype: 'box',
+                        height: 60,
+                        autoEl: {
+                            tag: 'img',
+                            src: './images/bing.png'
+                        },
+                        style: {
+                            position: 'relative',
+                            marginTop: '20px',
+                            marginLeft: '-160px'
+                        }
+                    }, {
+                        xtype: 'tabpanel',
+                        id: 'my-panel',
+                        colspan: 1,
+                        height: 80,
+                        width: 580,
+                        activeTab: 'domestic',
+                        items: [{
+                            id: 'domestic',
+                            title: '国内版',
+                            layoutConfig: {
+                                columns: 2
+                            },
+                            layout: 'table',
+                            items: [
+                                {
+                                    xtype: 'field',
+                                    width: 520,
+                                    height: 50,
+                                    colspan: 1,
+                                    cls: 'search-input',
+                                },
+                                {
+                                    xtype: 'button',
+                                    colspan: 1,
+                                    icon: './images/search.png',
+                                    scale: 'large',
+                                    cls: 'search-icon',
+                                    width: 50,
+                                    height: 50
+                                }
+                            ]
+                        }, {
+                            id: 'foreign',
+                            title: '国外版',
+                            layout: 'table',
+                            layoutConfig: {
+                                columns: 2
+                            },
+                            items: [
+                                {
+                                    colspan: 1,
+                                    xtype: 'field',
+                                    width: 520,
+                                    height: 50,
+                                    cls: 'search-input',
+                                },
+                                {
+                                    colspan: 1,
+                                    xtype: 'button',
+                                    icon: './images/search.png',
+                                    scale: 'large',
+                                    cls: 'search-icon',
+                                    width: 50,
+                                    height: 50
+                                }
+                            ]
+                        }]
+                    }]
+                }]
+            });
+        })
+    </script>
+    <style type="text/css">
+        .search-icon {
+            position: relative;
+            border: 0;
+        }
+
+        .search-input {
+            border: none;
+            box-shadow: 0;
+            font-size: 18px;
+        }
+
+        body {
+            background: url('./images/th.jpg') no-repeat;
+        }
+
+        #my-panel {
+            /* position: relative; */
+            margin-left: 150px;
+        }
+
+        #my-panel ul {
+            background: transparent;
+            color: black;
+            border: none;
+        }
+
+        #my-panel div {
+            background: transparent;
+            color: black;
+            border: none;
+        }
+
+        
+        #my-panel li {
+            background: transparent;
+            color: black;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+</body>
+
+</html>
